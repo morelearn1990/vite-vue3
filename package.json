@@ -17,6 +17,7 @@
         "vue": "^3.0.5",
         "vue-router": "^4.0.5",
         "vue-use-gesture": "^1.0.1",
+        "vue3-reactive-store": "^0.2.1",
         "vuex": "^4.0.0"
     },
     "devDependencies": {
