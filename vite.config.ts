@@ -9,7 +9,7 @@ import vitePages from 'vite-plugin-pages';
 export default defineConfig({
     resolve: {
         alias: {
-            '@': './src',
+            '@/': '/src/',
         },
     },
     plugins: [
@@ -20,7 +20,7 @@ export default defineConfig({
                 { dir: 'src/pages/admin', baseRoute: 'admin' },
                 { dir: 'src/pages/portal', baseRoute: 'portal' },
             ],
-            extensions: ['vue', 'md'],
+            extensions: ['vue'],
             syncIndex: false,
             replaceSquareBrackets: true,
         }),
