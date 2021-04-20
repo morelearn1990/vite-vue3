@@ -1,15 +1,16 @@
+import { reactive, ref } from 'vue';
 import { exportGlobalModule } from 'vue3-reactive-store';
-import { reactive } from 'vue';
 
 const tokenHook = () => {
-    const state = reactive({ token: '' });
+    // const state = reactive({ token: '' });
+    const tokenRef = ref('');
 
     const setToken = (token: string) => {
-        state.token = token;
+        tokenRef.value = token;
     };
 
-    return [state, setToken];
+    return { token: tokenRef, setToken };
 };
 
-export type HookFnType = typeof tokenHook;
-export default exportGlobalModule<HookFnType>(tokenHook);
+export type tokenHookType = typeof tokenHook;
+export default exportGlobalModule<tokenHookType>(tokenHook);

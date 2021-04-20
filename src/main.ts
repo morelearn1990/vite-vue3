@@ -9,6 +9,8 @@ const router = createRouter({
     routes,
 });
 
+console.log('routes', routes);
+
 const app = createApp(App);
 
 app.use(router);

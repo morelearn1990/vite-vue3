@@ -1,31 +1,21 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-    <div>{{ token }}</div>
-    <button @click="setTokenStr">asdf</button>
-    <router-view></router-view>
+    <div>
+        {{ token }}
+        <button @click="setTokenStr">12323</button>
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from 'vue';
 import { useModule, useStore } from 'vue3-reactive-store';
 import tokenHook, { tokenHookType } from '@/store/auth';
 
+console.log('tokenHook', tokenHook);
+
 export default defineComponent({
     name: 'App',
-    components: {
-        HelloWorld,
-    },
     setup(props) {
         const { token, setToken } = useModule<tokenHookType, string>(tokenHook, '');
-
-        watch(token, (token) => {
-            console.log('token', token);
-        });
-        // 或者希望使用 store 时, 可以借助 `useStore`
-        // const store = useStore()
-        // const { state, add } = store.injectModule<HookFnType>(hookModule);
         const setTokenStr = () => setToken(token.value + 'dfdf');
         return {
             token,
