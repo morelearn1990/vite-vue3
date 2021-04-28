@@ -6,7 +6,7 @@
         "build": "vuedx-typecheck . && vite build",
         "serve": "vite preview",
         "lint": "vuedx-typecheck .",
-        "prepare": "[ -d '.husky' ] &&  echo '' || (yarn husky install && yarn husky add .husky/commit-msg 'yarn commitlint --edit $1')",
+        "prepare": "[ -d '.husky' ] &&  echo '' || (pnpx husky install && pnpx husky add .husky/commit-msg 'pnpx commitlint --edit $1')",
         "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
     },
     "dependencies": {
@@ -44,7 +44,7 @@
         "vite-plugin-style-import": "^0.8.1"
     },
     "lint-staged": {
-        "*.js": "yarn lint",
+        "*.js": "pnpx lint",
         "*.{js,css,md}": "prettier --write"
     },
     "husky": {
