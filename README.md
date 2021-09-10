@@ -9,6 +9,10 @@ pnpm dev
 pnpm build
 ```
 
+## FQA
+
+1. 本项目在 vscode 编辑器里面运行最好安装 vscode 插件 volar 避免使用 vetur，两者有一定的冲突
+
 ## git 提交规范(Angular 规范)
 
 需要使用提交规范请先执行 `yarn prepare`

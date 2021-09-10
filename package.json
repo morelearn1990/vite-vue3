@@ -1,66 +1,78 @@
 {
-    "name": "my-vue-app-ts",
-    "version": "0.0.0",
-    "scripts": {
-        "dev": "vite",
-        "build": "vuedx-typecheck . && vite build",
-        "serve": "vite preview",
-        "lint": "vuedx-typecheck .",
-        "prepare": "[ -d '.husky' ] &&  echo '' || (pnpx husky install && pnpx husky add .husky/commit-msg 'pnpx commitlint --edit $1')",
-        "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
-    },
-    "dependencies": {
-        "ahooks-vue": "^0.10.2",
-        "ant-design-vue": "^1.7.4",
-        "lodash": "^4.17.21",
-        "tailwindcss": "^2.0.3",
-        "vue": "^3.0.5",
-        "vue-router": "^4.0.5",
-        "vue-use-gesture": "^1.0.1",
-        "vue3-reactive-store": "^0.2.1",
-        "vuex": "^4.0.0"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^12.0.1",
-        "@commitlint/config-conventional": "^12.0.1",
-        "@types/node": "^14.14.35",
-        "@vitejs/plugin-vue": "^1.1.4",
-        "@vitejs/plugin-vue-jsx": "^1.1.2",
-        "@vue/compiler-sfc": "^3.0.5",
-        "@vuedx/typecheck": "^0.6.0",
-        "@vuedx/typescript-plugin-vue": "^0.6.0",
-        "autoprefixer": "^10.2.5",
-        "conventional-changelog": "^3.1.24",
-        "cz-conventional-changelog": "^3.3.0",
-        "husky": "^5.1.3",
-        "less": "^4.1.1",
-        "lint-staged": "^10.5.4",
-        "postcss": "^8.2.8",
-        "postcss-import": "^14.0.0",
-        "prettier": "^2.2.1",
-        "typescript": "^4.1.3",
-        "vite": "^2.0.0",
-        "vite-plugin-pages": "^0.7.2",
-        "vite-plugin-style-import": "^0.8.1"
-    },
-    "lint-staged": {
-        "*.js": "pnpx lint",
-        "*.{js,css,md}": "prettier --write"
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "lint-staged"
-        }
-    },
-    "commitlint": {
-        "extends": [
-            "@commitlint/config-conventional"
-        ]
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+  "name": "my-vue-app-ts",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vuedx-typecheck . && vite build",
+    "serve": "vite preview",
+    "lint:js": "vuedx-typecheck .",
+    "lint:vue": "vuedx-typecheck .",
+    "lint:css": "vuedx-typecheck .",
+    "prepare": "[ -d '.husky' ] &&  echo '' || (pnpx husky install && pnpm commitprepare && pnpm lintprepare)",
+    "commitprepare": "pnpx husky add .husky/commit-msg 'pnpx commitlint --edit $1'",
+    "lintprepare": "pnpx husky add .husky/pre-commit 'pnpx lint-staged'",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@vueuse/core": "^6.2.0",
+    "@vueuse/integrations": "^6.2.0",
+    "@vueuse/motion": "^2.0.0-beta.1",
+    "axios": "^0.21.3",
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.0-rc.8",
+    "pinia-plugin-history": "^1.3.0",
+    "pinia-plugin-persist": "^0.0.5",
+    "tailwindcss": "^2.2.9",
+    "vue": "^3.2.9",
+    "vue-i18n": "^9.1.7",
+    "vue-intl": "^6.0.11",
+    "vue-router": "^4.0.11",
+    "vue-use-gesture": "^1.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@intlify/vite-plugin-vue-i18n": "^2.4.0",
+    "@types/node": "^14.17.14",
+    "@vitejs/plugin-legacy": "^1.5.3",
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vitejs/plugin-vue-jsx": "^1.1.7",
+    "@vue/compiler-sfc": "^3.2.9",
+    "@vuedx/typecheck": "^0.6.3",
+    "@vuedx/typescript-plugin-vue": "^0.6.3",
+    "autoprefixer": "^10.3.4",
+    "conventional-changelog": "^3.1.24",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^5.2.0",
+    "less": "^4.1.1",
+    "lint-staged": "^10.5.4",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "prettier": "^2.3.2",
+    "typescript": "^4.4.2",
+    "vite": "^2.5.3",
+    "vite-plugin-pages": "^0.10.0",
+    "vite-plugin-style-import": "^0.8.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "pnpx lint",
+    "*.{js,ts,css,less,vue,md}": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

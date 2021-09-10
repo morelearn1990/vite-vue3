@@ -1,3 +1,7 @@
 {
-    "volar.tsPlugin": true
+  "vetur.grammar.customBlocks": {
+    "route": "json",
+    "docs": "md",
+    "i18n": "json"
+  }
 }

@@ -1,17 +1,21 @@
 <template>
-  <router-view></router-view>
+  <div>
+    portal
+    {{ token }}
+    <button @click="setTokenStr">12323</button>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent, ref } from 'vue';
+import { useTitle } from '@vueuse/core';
+import { useAxios } from '@vueuse/integrations/useAxios';
 
 export default defineComponent({
   name: 'App',
-  components: {
-    HelloWorld,
-  },
   setup(props) {
+    const { data } = useAxios('/aaa');
+    useTitle('aaaa');
     return {};
   },
 });
