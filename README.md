@@ -11,11 +11,11 @@ pnpm build
 
 ## FQA
 
-1. 本项目在 vscode 编辑器里面运行最好安装 vscode 插件 volar 避免使用 vetur，两者有一定的冲突
+1. 本项目在 vscode 编辑器里面运行最好安装 vscode 插件 volar 避免使用 vetur，两者有一定的冲突，volar 对 vue3 的提示更加友好
+2. 本项目使用 pnpm 作为依赖管理工具，请安装 pnpm 使用。
+3. 复制本项目到其他地方运行时，安装依赖前请先进行 git 仓库初始化，因为安装依赖时会对 husky 进行初始化，如果本目录下没有 git 仓库，则会失败。
 
 ## git 提交规范(Angular 规范)
-
-需要使用提交规范请先执行 `yarn prepare`
 
 > 1.  feat 新增一个功能
 > 2.  fix 修复一个 Bug
