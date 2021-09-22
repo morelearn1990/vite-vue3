@@ -7,6 +7,9 @@ import { createI18n } from 'vue-i18n';
  * at once using the import syntax
  */
 
+import 'virtual:windi.css'; // 引入 windi css https://cn.windicss.org/
+import 'virtual:windi-devtools'; // 调试 windi css
+
 import routes from 'virtual:generated-pages';
 import messages from '@intlify/vite-plugin-vue-i18n/messages';
 import App from './App.vue';

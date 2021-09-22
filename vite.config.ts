@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
+import WindiCSS from 'vite-plugin-windicss';
 import styleImport from 'vite-plugin-style-import';
 import vitePages from 'vite-plugin-pages';
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
@@ -11,6 +12,7 @@ import vueI18n from '@intlify/vite-plugin-vue-i18n';
 export default defineConfig(({}) => ({
   resolve: { alias: { '@/': '/src/' } },
   plugins: [
+    WindiCSS(),
     vitePages({
       pagesDir: 'src/views',
       extensions: ['vue'],
